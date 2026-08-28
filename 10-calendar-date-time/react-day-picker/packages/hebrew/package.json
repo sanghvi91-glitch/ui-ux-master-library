@@ -1,0 +1,59 @@
+{
+  "name": "@daypicker/hebrew",
+  "version": "10.0.1",
+  "description": "Hebrew calendar support for react-day-picker",
+  "homepage": "https://daypicker.dev",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpbl/react-day-picker.git",
+    "directory": "packages/hebrew"
+  },
+  "bugs": {
+    "url": "https://github.com/gpbl/react-day-picker/issues"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json",
+      "default": "./package.json"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist && pnpm build:cjs && pnpm build:esm",
+    "build:cjs": "tsc --project tsconfig-cjs.json && echo '{ \"type\": \"commonjs\" }' > dist/cjs/package.json",
+    "build:esm": "tsc --project tsconfig-esm.json",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "@types/react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@daypicker/react": "10.0.1",
+    "date-fns": "^4.1.0"
+  }
+}

@@ -1,0 +1,6 @@
+**/api/**
+**/dist/**
+**/build/**
+**/versioned_docs/**
+website/.docusaurus/**
+website/examples-v8/**

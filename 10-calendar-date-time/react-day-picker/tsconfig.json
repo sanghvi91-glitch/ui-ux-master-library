@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig-workspace-base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node", "jest", "@testing-library/jest-dom", "@types/jest"]
+  },
+  "include": [
+    "packages/react-day-picker/src",
+    "packages",
+    "test",
+    "**/*.test.*",
+    "examples",
+    "scripts/**/*.ts"
+  ],
+  "exclude": ["apps/website"]
+}

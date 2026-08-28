@@ -1,0 +1,108 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.12/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.ts",
+      "**/*.tsx",
+      "!**/dist",
+      "!**/build",
+      "!**/versioned_docs",
+      "!apps/website/.docusaurus",
+      "!apps/website/examples-v8"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "useUniqueElementIds": "off",
+        "noUnusedVariables": {
+          "level": "error",
+          "options": {
+            "ignoreRestSiblings": true
+          }
+        }
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["packages/react-day-picker/src/locale/*.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "date-fns/locale": "Import each locale from its date-fns locale subpath."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDoneCallback": "error",
+            "noRestrictedGlobals": {
+              "level": "error",
+              "options": {
+                "deniedGlobals": {
+                  "it": "Use test() instead of it() for test declaration consistency."
+                }
+              }
+            },
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "@testing-library/react": "Use @/test/render so tests share the repo test helpers.",
+                  "@testing-library/user-event": "Use @/test/user so user-event setup is consistent."
+                }
+              }
+            }
+          },
+          "suspicious": {
+            "noDuplicateTestHooks": "error",
+            "noExportsInTest": "error",
+            "noFocusedTests": "error",
+            "noMisplacedAssertion": "error",
+            "noSkippedTests": "error"
+          }
+        }
+      }
+    }
+  ],
+  "javascript": {
+    "jsxRuntime": "reactClassic",
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
+}

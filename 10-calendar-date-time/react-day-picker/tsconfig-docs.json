@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig-base.json",
+  "compilerOptions": {
+    "paths": {
+      "@/test/*": ["./test/*"],
+      "react-day-picker": ["./packages/react-day-picker/src/index.ts"],
+      "react-day-picker/*": ["./packages/react-day-picker/src/*"]
+    },
+    "noEmit": true,
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "lib": ["dom", "dom.iterable", "esnext"]
+  },
+  "include": ["packages/react-day-picker/src"],
+  "exclude": ["apps/website", "**/*.test.*"]
+}
